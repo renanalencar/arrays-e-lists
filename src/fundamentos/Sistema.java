@@ -2,6 +2,7 @@ package fundamentos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /***
@@ -26,11 +27,14 @@ public class Sistema {
 		 * especificado. Além disso, na instanciação precisamos dar um tamanho fixo para
 		 * o array que estamos criando
 		 */
+
+//		String[] arr = {"Gabriel", "Wesley", "Guilherme", "Renan"};
+
 		String[] arrPessoas = new String[4];
 		arrPessoas[0] = "Gabriel";
 		arrPessoas[1] = "Wesley";
 		arrPessoas[2] = "Guilherme";
-		arrPessoas[3] = "Renam";
+		arrPessoas[3] = "Renan";
 
 		System.out.println("Lista de valores utilizando Array:");
 
@@ -46,10 +50,17 @@ public class Sistema {
 		// Atualmente uma forma fácil de fazer isso é utilizando a classe Arrays que
 		// contém um método próprio de transformar array para lista, o asList.
 
-		lisPessoas = Arrays.asList(arrPessoas);
+		lisPessoas = Arrays.asList(arrPessoas); // asList é limitado para novos elementos
+//		lisPessoas.add("Gama"); vai dar ruim! :-(
 
 		System.out.println("\nLista de valores List utilizando método da classe Arrays:");
-		
+
+		imprimirConteudo(lisPessoas);
+
+		// Ordenando a list
+		Collections.sort(lisPessoas);
+
+		System.out.println("\nImprimindo lista ordenada:");
 		imprimirConteudo(lisPessoas);
 
 		/*
@@ -97,16 +108,24 @@ public class Sistema {
 		System.out.println("\nLista de valores utilizando estrutura de repetição para preencher o Array:");
 
 		imprimirConteudo(arrPessoas);
-
+		
+		System.out.println("\nUtilizando var args:");
+		imprimirConteudo("jose", "maria");
 	}
 
 	/***
 	 * Método para imprimir todo o conteúdo de um array. Recebe como parametro um
-	 * array de strings.
+	 * um var args de string.
 	 * 
 	 * @param arr String[]
 	 */
-	public static void imprimirConteudo(String[] arr) {
+	public static void imprimirConteudo(String... arr) {
+		// lembrando que var args deve ser o último parametro. Não pode ter
+		// parametros antes dele.
+		if (arr == null) {
+			return;
+		}
+
 		for (String s : arr) {
 			System.out.println(s);
 		}
@@ -119,7 +138,8 @@ public class Sistema {
 	 * @param l List
 	 */
 	public static void imprimirConteudo(List<String> l) {
-		l.forEach(s -> System.out.println(s));
+		imprimirConteudo(l.toArray(new String[l.size()]));
+//		l.forEach(s -> System.out.println(s));
 	}
 
 }
