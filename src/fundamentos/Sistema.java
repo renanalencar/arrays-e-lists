@@ -63,7 +63,7 @@ public class Sistema {
 			lisPessoas.add(nome);
 		}
 		
-		System.out.println("\nLista de valores utilizando estrutura de repetição para preencher a lista");
+		System.out.println("\nLista de valores utilizando estrutura de repetição para preencher a lista:");
 		
 		lisPessoas.forEach(nome -> imprimirValor(nome));
 		
@@ -79,7 +79,7 @@ public class Sistema {
 		 */
 		arrPessoas = lisPessoas.toArray(new String[lisPessoas.size()]);
 		
-		System.out.println("\nLista de valores utilizando método da classe Collection para transformar em array");
+		System.out.println("\nLista de valores utilizando método da classe Collection para transformar em array:");
 		
 		imprimirConteudo(arrPessoas);
 
@@ -95,7 +95,7 @@ public class Sistema {
 			arrPessoas[i] = lisPessoas.get(i);
 		}
 		
-		System.out.println("\nLista de valores utilizando estrutura de repetição para preencher o Array");
+		System.out.println("\nLista de valores utilizando estrutura de repetição para preencher o Array:");
 		
 		imprimirConteudo(arrPessoas);
 
